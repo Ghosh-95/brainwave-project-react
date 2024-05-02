@@ -10,7 +10,6 @@ function App() {
         <Button className="mt-10" href="#login">Something</Button>
       </article> */}
       <Header />
-      <ButtonGradient />
     </>
   )
 }

@@ -1,10 +1,13 @@
 import { brainwave } from "../assets";
 import { navigation } from "../utils/constants/const";
 import { useLocation } from "react-router-dom";
+import { enablePageScroll, disablePageScroll } from "scroll-lock";
+import { useState } from "react";
+
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "../design/DesignHeader";
-import { useState } from "react";
+import ButtonGradient from "../assets/svg/ButtonGradient";
 
 function NavLists({ data, onClick }) {
     const paths = useLocation();
@@ -18,8 +21,16 @@ function NavLists({ data, onClick }) {
 export default function Header() {
     const [openNavigation, setOpenNavigation] = useState(false);
 
-    const toggleNavigation = () => setOpenNavigation(!openNavigation);
-    const handleClick = () => setOpenNavigation(false);
+    const toggleNavigation = () => {
+        setOpenNavigation(!openNavigation)
+        if (openNavigation) disablePageScroll();
+        if (!openNavigation) enablePageScroll();
+    };
+    const handleClick = () => {
+        if (!openNavigation) return;
+        enablePageScroll();
+        setOpenNavigation(false);
+    };
 
     return (
         <header className={`fixed top-0 w-full z-50 lg:backdrop-blur-sm border-b border-n-6 lg:bg-n-8/90 ${openNavigation ? 'bg-n-8' : 'bg-n-8/90 backdrop-blur-sm'}`
@@ -47,6 +58,7 @@ export default function Header() {
                     <MenuSvg openNavigation={openNavigation} />
                 </Button>
             </article>
+            <ButtonGradient />
         </header>
     )
 }
