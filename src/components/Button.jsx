@@ -7,7 +7,7 @@ export default function Button({ className, href, white, px, children, onClick }
 
     function renderButton() {
         return (
-            <button className={btnClassStyles}>
+            <button onClick={onClick} className={btnClassStyles}>
                 <span className={spanClassStyles}>{children}</span>
                 {ButtonSvg(white)}
             </button>
