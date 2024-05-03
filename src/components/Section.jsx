@@ -13,7 +13,7 @@ export default function Section({ id, className, customPaddings, children, cross
 
             {crosses && (
                 <>
-                    <div className={`hidden absolute top-0 left-7.5 right-7.5 h-0.25 bg-stroke-1 ${crossOffset && crossOffset} pointer-events-none lg:block xl:inset-x-10`} />
+                    <div className={`hidden absolute top-0 left-7.5 right-7.5 h-0.25 bg-stroke-1 ${crossOffset && crossOffset} pointer-events-none lg:block xl:right-10 xl:left-10`} />
 
                     <SectionSvg crossesOffset={crossOffset} />
                 </>
