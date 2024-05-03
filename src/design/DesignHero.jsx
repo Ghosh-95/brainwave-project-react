@@ -3,7 +3,10 @@ import { MouseParallax } from "react-just-parallax";
 
 import PlusSvg from "../assets/svg/PlusSvg";
 
-const PlusSvgComp = ({ direction }) => (<PlusSvg className={`hidden absolute top-[54.9375rem] ${direction}-[2.1875rem] z-2 pointer-events-none xl:block`} />);
+function PlusSvgComp({ direction }) {
+  console.log(direction);
+  return (<PlusSvg className={`hidden absolute top-[54.9375rem] ${direction} z-2 pointer-events-none xl:block`} />);
+}
 
 const CustomRings = ({ width }) => (<div className={`absolute top-1/2 left-1/2 w-[${width}rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2`} />);
 
@@ -22,8 +25,8 @@ export const BottomLine = () => {
     <>
       <div className="hidden absolute top-[55.25rem] left-10 right-10 h-0.25 bg-n-6 pointer-events-none xl:block" />
 
-      <PlusSvgComp direction={"left"} />
-      <PlusSvgComp direction={"right"} />
+      <PlusSvgComp direction="right-[2.1875rem]" />
+      <PlusSvgComp direction="left-[2.1875rem]" />
     </>
   );
 };

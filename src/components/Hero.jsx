@@ -4,7 +4,10 @@ import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "../design/DesignHero";
 import { heroIcons } from "../utils/constants/const";
 import { ScrollParallax } from "react-just-parallax";
+import Generating from "./Generating";
+import Notification from "./Notification";
 import { useRef } from "react";
+import CompanyLogos from "./CompanyLogo";
 
 export default function Hero() {
     const parallaxRef = useRef(null);
@@ -39,7 +42,10 @@ export default function Hero() {
                                     className="w-full scale-[1.7] translate-y-[8%] md:scale-100 md:-translate-y-[10%]  lg:-translate-y-[20%]"
                                     alt="futuristic robot high resolution image" width={1024} height={490} />
 
-                                <ScrollParallax isAbsolutelyPositioned={true}>
+
+                                <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
+
+                                <ScrollParallax isAbsolutelyPositioned>
                                     <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] p-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
 
                                         {heroIcons.map((icon, i) => (
@@ -50,6 +56,11 @@ export default function Hero() {
 
                                     </ul>
                                 </ScrollParallax>
+
+                                <ScrollParallax isAbsolutelyPositioned>
+                                    <Notification className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
+                                        title="Code generation" />
+                                </ScrollParallax>
                             </figure>
                         </div>
                         <Gradient />
@@ -59,7 +70,9 @@ export default function Hero() {
                     </figure>
                     <BackgroundCircles />
                 </article>
+                <CompanyLogos className="hidden relative lg:block z-10 mt-[20]" />
             </div>
+            <BottomLine />
         </Section>
     )
 }
