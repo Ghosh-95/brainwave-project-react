@@ -4,7 +4,6 @@ import { MouseParallax } from "react-just-parallax";
 import PlusSvg from "../assets/svg/PlusSvg";
 
 function PlusSvgComp({ direction }) {
-  console.log(direction);
   return (<PlusSvg className={`hidden absolute top-[54.9375rem] ${direction} z-2 pointer-events-none xl:block`} />);
 }
 
