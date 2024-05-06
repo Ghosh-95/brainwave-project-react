@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Pricing from "./components/Pricing";
 import Roadmap from "./components/Roadmap";
 import Services from "./components/Services";
+import FooterSection from "./components/FooterSection";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         <Pricing />
         <Roadmap />
       </main>
+      <footer>
+        <FooterSection />
+      </footer>
     </>
   )
 }
